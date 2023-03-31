@@ -1,5 +1,14 @@
 import express from 'express';
 import cors from 'cors'
+import mongoose from "mongoose";
+import { config } from 'dotenv'
+config()
+const database = process.env.DB_CONNECTION_STRING;
+const CONNECTION_STRING = `${database}`
+
+mongoose.connect(CONNECTION_STRING);
+// mongoose.connect('mongodb://127.0.0.1:27017/tuiter');
+// mongoose.connect('mongodb+srv://mzshen21:Smz19931013@mozhicluster.7qxqkzz.mongodb.net/?retryWrites=true&w=majority');
 
 import HelloController from "./controllers/hello-controller.js";
 import UserController from "./controllers/users/users-controller.js"
